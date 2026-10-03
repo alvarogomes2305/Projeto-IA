@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>O que é o Bitcoin | Portfólio</title>
+  <meta name="description"
+    content="Portfólio pessoal sobre criptomoedas: o que é o Bitcoin, como funciona e como sua adoção cresceu ao longo do tempo.">
+  <meta name="theme-color" content="#050403">
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23f7931a'/%3E%3Ctext x='32' y='47' font-size='42' font-weight='900' text-anchor='middle' fill='%23fff' font-family='Arial'%3EB%3C/text%3E%3C/svg%3E">
+
+  <!-- Marca o documento como "com JavaScript" antes da renderização (evita piscar nas animações de entrada) -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- Símbolo do Bitcoin reutilizável (<use href="#btc">) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="btc" viewBox="0 0 100 100">
+      <path d="M38 8v14M58 8v14M38 76v14M58 76v14" fill="none" stroke="currentColor" stroke-width="7"
+        stroke-linecap="round" />
+      <text x="50" y="74" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900"
+        font-size="72" fill="currentColor">B</text>
+    </symbol>
+  </svg>
+
+  <!-- Fundo animado (rede de nós) desenhado via JavaScript -->
+  <canvas id="network" aria-hidden="true"></canvas>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- =========================================================
+       CABEÇALHO / NAVEGAÇÃO
+       ========================================================= -->
+  <header class="site-header" id="header">
+    <div class="site-header__inner">
+      <a href="#inicio" class="brand" aria-label="Ir para o início">
+        <span class="brand__coin"><svg viewBox="0 0 100 100">
+            <use href="#btc" />
+          </svg></span>
+        <span class="brand__name">O que é o Bitcoin</span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="nav" aria-label="Navegação principal">
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#introducao">Introdução</a></li>
+          <li><a href="#video">Vídeo</a></li>
+          <li><a href="#audio">Áudio</a></li>
+          <li><a href="#imagem">Imagem</a></li>
+          <li><a href="#infografico">Infográfico</a></li>
+          <li><a href="#musica">Música</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- =========================================================
+         1. HERO — APRESENTAÇÃO
+         ========================================================= -->
+    <section id="inicio" class="hero" aria-labelledby="hero-title">
+      <div class="container hero__grid">
+
+        <div class="hero__text">
+          <h1 id="hero-title" class="hero__title">
+            <span class="hero__line" data-hero style="--i:0">O QUE É O</span>
+            <!-- ✏️ NOME: altere aqui (e o data-text, que alimenta o efeito glitch) -->
+            <span class="hero__line" data-hero style="--i:1"><em class="glitch" data-text="BITCOIN">BITCOIN</em></span>
+          </h1>
+
+          <!-- ✏️ PROFISSÃO / ÁREA -->
+          <p class="hero__role" data-hero style="--i:2">
+            <span class="hero__prompt" aria-hidden="true">&gt;</span> Criptomoedas<span class="hero__cursor"
+              aria-hidden="true"></span>
+          </p>
+
+          <!-- ✏️ TEXTO DE APRESENTAÇÃO -->
+          <p class="hero__lead" data-hero style="--i:3">
+            O Bitcoin é uma moeda digital que permite transferências de valor diretas entre pessoas,
+            sem depender de bancos. Sua tecnologia, o blockchain, garante segurança e transparência nas transações.
+          </p>
+
+          <!-- ✏️ CTA: leva à seção de conteúdos (vídeo) -->
+          <div class="hero__actions" data-hero style="--i:4">
+            <a href="#video" class="btn btn--primary">Saiba Mais</a>
+          </div>
+        </div>
+
+        <div class="hero__visual" id="heroVisual" data-hero style="--i:1" aria-hidden="false">
+          <svg class="chain" viewBox="0 0 500 500" role="img" aria-label="Ilustração de uma rede blockchain">
+            <g class="chain__ring chain__ring--outer">
+              <circle cx="250" cy="250" r="238" fill="none" stroke="#f7931a" stroke-opacity=".25"
+                stroke-dasharray="2 10" />
+            </g>
+            <g class="chain__spin">
+              <polygon points="250,50 423,150 423,350 250,450 77,350 77,150" fill="none" stroke="#f7931a"
+                stroke-opacity=".7" stroke-width="1.5" />
+              <path d="M250,50 L250,450 M423,150 L77,350 M423,350 L77,150" stroke="#f7931a" stroke-opacity=".22"
+                fill="none" />
+              <circle cx="250" cy="250" r="128" fill="none" stroke="#ffb55c" stroke-opacity=".4"
+                stroke-dasharray="4 6" />
+
+              <g class="node" transform="translate(250,50)">
+                <rect x="-18" y="-18" width="36" height="36" />
+                <rect x="-7" y="-7" width="14" height="14" />
+              </g>
+              <g class="node" transform="translate(423,150)">
+                <rect x="-18" y="-18" width="36" height="36" />
+                <rect x="-7" y="-7" width="14" height="14" />
+              </g>
+              <g class="node" transform="translate(423,350)">
+                <rect x="-18" y="-18" width="36" height="36" />
+                <rect x="-7" y="-7" width="14" height="14" />
+              </g>
+              <g class="node" transform="translate(250,450)">
+                <rect x="-18" y="-18" width="36" height="36" />
+                <rect x="-7" y="-7" width="14" height="14" />
+              </g>
+              <g class="node" transform="translate(77,350)">
+                <rect x="-18" y="-18" width="36" height="36" />
+                <rect x="-7" y="-7" width="14" height="14" />
+              </g>
+              <g class="node" transform="translate(77,150)">
+                <rect x="-18" y="-18" width="36" height="36" />
+                <rect x="-7" y="-7" width="14" height="14" />
+              </g>
+
+              <!-- "transações" percorrendo a rede -->
+              <circle r="4" fill="#ffd9a0">
+                <animateMotion dur="5s" repeatCount="indefinite"
+                  path="M250,50 L423,150 L423,350 L250,450 L77,350 L77,150 Z" />
+              </circle>
+              <circle r="3" fill="#ff6a00">
+                <animateMotion dur="7s" begin="-3s" repeatCount="indefinite"
+                  path="M250,450 L77,350 L77,150 L250,50 L423,150 L423,350 Z" />
+              </circle>
+            </g>
+          </svg>
+
+          <!-- ✏️ FOTO DE PERFIL: substitua imagens/perfil.jpg (se não existir, aparece o placeholder) -->
+          <div class="avatar">
+            <img src="imagens/perfil.jpg" alt="Foto de perfil" width="400" height="400"
+              onerror="this.onerror=null;this.src='imagens/perfil-placeholder.svg'">
+          </div>
+        </div>
+      </div>
+
+      <a href="#introducao" class="scroll-hint" aria-label="Rolar para a introdução"><span></span></a>
+    </section>
+
+
+    <!-- =========================================================
+         2. INTRODUÇÃO
+         ========================================================= -->
+    <section id="introducao" class="section" aria-labelledby="introducao-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <h2 id="introducao-title">Introdução</h2>
+          <p>Quem está por trás deste portfólio.</p>
+        </header>
+
+        <div class="intro">
+          <article class="panel intro__text reveal">
+            <!-- ✏️ TEXTO DA INTRODUÇÃO: apresente-se, fale de interesses, habilidades, experiências e objetivos -->
+            <p class="intro__lead">O Bitcoin é uma moeda digital que utiliza criptografia para proteger transações e
+              garantir a segurança dos usuários. Ele funciona por meio da blockchain, uma rede que registra todas as
+              transações realizadas de forma pública e descentralizada.
+
+              Diferentemente do dinheiro convencional, o Bitcoin permite que as pessoas realizem transferências
+              diretamente entre si, sem depender necessariamente de bancos ou outras instituições financeiras. Para
+              isso, são utilizados endereços digitais e chaves criptográficas que permitem receber e enviar Bitcoin com
+              segurança.
+
+              Apesar de oferecer maior privacidade em alguns aspectos, o Bitcoin não é completamente anônimo. As
+              transações ficam registradas na blockchain e podem ser analisadas. O usuário não aparece diretamente pelo
+              nome, mas seu endereço digital pode eventualmente ser relacionado à sua identidade.
+
+              Dessa forma, o Bitcoin pode ser utilizado como uma alternativa ao dinheiro tradicional, principalmente
+              para pagamentos e transferências digitais, enquanto a criptografia e a blockchain ajudam a garantir a
+              segurança e a integridade das operações.</p>
+          </article>
+
+          <dl class="intro__facts">
+            <!-- ✏️ Edite ou remova os itens abaixo conforme quiser -->
+            <div class="panel fact reveal" style="--d:.08s">
+              <dt>Interesses</dt>
+              <dd>Criptomoedas, blockchain e finanças descentralizadas.</dd>
+            </div>
+            <div class="panel fact reveal" style="--d:.16s">
+              <dt>Habilidades</dt>
+              <dd>Pesquisa, comunicação e criação de conteúdo digital.</dd>
+            </div>
+            <div class="panel fact reveal" style="--d:.24s">
+              <dt>Objetivos</dt>
+              <dd>Explicar o Bitcoin de forma simples para qualquer pessoa.</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         3. VÍDEO
+         ========================================================= -->
+    <section id="video" class="section" aria-labelledby="video-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <h2 id="video-title">Vídeo</h2>
+          <p>Veja o Bitcoin em movimento.</p>
+        </header>
+
+        <div class="panel panel--media reveal" data-media data-playing-scope>
+          <div class="media">
+            <video controls preload="metadata" playsinline>
+              <!-- 🎬 INSIRA AQUI O ARQUIVO DE VÍDEO (pasta /video) -->
+              <source src="video/video.mp4" type="video/mp4">
+              Seu navegador não suporta a reprodução de vídeo.
+            </video>
+            <div class="media__empty" role="status">
+              <div>
+                <p><strong>Vídeo não encontrado</strong></p>
+                <p>Coloque o arquivo em <code data-missing-path>video/video.mp4</code></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         4. ÁUDIO
+         ========================================================= -->
+    <section id="audio" class="section" aria-labelledby="audio-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <h2 id="audio-title">Áudio</h2>
+          <p>Prefere ouvir? Dê o play.</p>
+        </header>
+
+        <div class="panel audio-card reveal" data-media data-playing-scope>
+          <div class="audio-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+              <path
+                d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
+            </svg>
+          </div>
+          <div class="audio-card__body">
+            <!-- ✏️ Título e descrição do áudio -->
+            <h3>Título do áudio</h3>
+            <p>Uma breve descrição sobre o que o visitante vai ouvir.</p>
+            <audio controls preload="metadata">
+              <!-- 🎧 INSIRA AQUI O ARQUIVO DE ÁUDIO (pasta /audio) -->
+              <source src="audio/audio.mp3" type="audio/mpeg">
+              Seu navegador não suporta a reprodução de áudio.
+            </audio>
+            <p class="media__note" role="status">Arquivo não encontrado. Coloque-o em <code
+                data-missing-path>audio/audio.mp3</code></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         5. IMAGEM
+         ========================================================= -->
+    <section id="imagem" class="section" aria-labelledby="imagem-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <h2 id="imagem-title">Imagem</h2>
+          <p>Um destaque visual.</p>
+        </header>
+
+        <figure class="feature reveal">
+          <!-- 🖼️ INSIRA AQUI A IMAGEM DE DESTAQUE (pasta /imagens) -->
+          <img src="imagens/imagem.jpg" alt="Descrição da imagem" loading="lazy">
+          <figcaption>
+            <strong>Legenda da imagem</strong>
+            <span>Substitua este texto por uma descrição curta.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         6. INFOGRÁFICO
+         ========================================================= -->
+    <section id="infografico" class="section" aria-labelledby="infografico-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <h2 id="infografico-title">Infográfico</h2>
+          <p>Da curiosidade ao uso global: como a adoção do Bitcoin cresceu ao longo do tempo.</p>
+        </header>
+
+        <div class="panel info reveal">
+          <button class="info__open" type="button" data-open-lightbox aria-label="Ampliar infográfico">
+            <!-- 📊 INSIRA AQUI O INFOGRÁFICO (pasta /imagens) -->
+            <img src="imagens/infografico.png" alt="Infográfico" loading="lazy">
+            <span class="info__badge">Toque para ampliar</span>
+          </button>
+
+          <!-- Etapas do infográfico (sequência real, por isso numeradas). ✏️ Edite à vontade -->
+          <ol class="steps">
+            <li><strong>Início / Gênese</strong><span>O código nasce aberto, entre curiosos e desenvolvedores.</span>
+            </li>
+            <li><strong>Aceitação comercial</strong><span>Lojas começam a aceitar pagamentos em Bitcoin.</span></li>
+            <li><strong>Expansão global</strong><span>O interesse cruza fronteiras e chega aos celulares.</span></li>
+            <li><strong>Adoção em massa</strong><span>Mais pessoas, empresas e países entram na rede.</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- =========================================================
+         8. MÚSICA  (visual diferenciado)
+         ========================================================= -->
+    <section id="musica" class="section section--music" aria-labelledby="musica-title">
+      <div class="container music" data-media data-playing-scope>
+
+        <div class="music__disc reveal" aria-hidden="true">
+          <div class="disc">
+            <div class="disc__label"><svg viewBox="0 0 100 100">
+                <use href="#btc" />
+              </svg></div>
+          </div>
+        </div>
+
+        <div class="music__body reveal" style="--d:.1s">
+          <h2 id="musica-title">Música</h2>
+          <!-- ✏️ Título e autoria da música -->
+          <p class="music__title">Título da música</p>
+          <p class="music__meta">Nome do artista / produtor</p>
+
+          <div class="eq" id="eq" aria-hidden="true"></div>
+
+          <audio controls preload="metadata">
+            <!-- 🎵 INSIRA AQUI O ARQUIVO DE MÚSICA (pasta /musica) -->
+            <source src="musica/musica.mp3" type="audio/mpeg">
+            Seu navegador não suporta a reprodução de áudio.
+          </audio>
+          <p class="media__note" role="status">Arquivo não encontrado. Coloque-o em <code
+              data-missing-path>musica/musica.mp3</code></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       9. RODAPÉ
+       ========================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__top">
+        <div>
+          <!-- ✏️ Nome de quem fez o site e frase -->
+          <p class="site-footer__name">Álvaro Gomes do Nascimento</p>
+          <p class="site-footer__quote">Confie no código, não no intermediário.</p>
+        </div>
+
+        <!-- ✏️ Troque os href="#" pelos seus links reais -->
+        <ul class="social" aria-label="Redes e contato">
+          <li>
+            <a href="#" aria-label="GitHub" title="GitHub">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-label="LinkedIn" title="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-label="Instagram" title="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:seuemail@exemplo.com" aria-label="E-mail" title="E-mail">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <p class="site-footer__copy">
+        &copy; <span id="year">2026</span> Álvaro Gomes do Nascimento. Todos os direitos reservados.
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- Visualizador ampliado do infográfico -->
+  <dialog id="lightbox" class="lightbox" aria-label="Infográfico ampliado">
+    <div class="lightbox__bar">
+      <button type="button" class="btn btn--small" id="lbZoom">Aumentar zoom</button>
+      <button type="button" class="btn btn--small btn--ghost" id="lbClose">Fechar</button>
+    </div>
+    <div class="lightbox__body" id="lbBody">
+      <img id="lbImg" src="imagens/infografico.png" alt="Infográfico ampliado">
+    </div>
+  </dialog>
+
+  <script src="js/script.js" defer></script>
+</body>
+
+</html>

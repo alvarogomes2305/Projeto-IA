@@ -56,7 +56,6 @@
           <li><a href="#inicio">Início</a></li>
           <li><a href="#introducao">Introdução</a></li>
           <li><a href="#video">Vídeo</a></li>
-          <li><a href="#audio">Áudio</a></li>
           <li><a href="#imagem">Imagem</a></li>
           <li><a href="#infografico">Infográfico</a></li>
           <li><a href="#musica">Música</a></li>
@@ -242,42 +241,6 @@
 
 
     <!-- =========================================================
-         4. ÁUDIO
-         ========================================================= -->
-    <section id="audio" class="section" aria-labelledby="audio-title">
-      <div class="container">
-        <header class="section__head reveal">
-          <h2 id="audio-title">Áudio</h2>
-          <p>Prefere ouvir? Dê o play.</p>
-        </header>
-
-        <div class="panel audio-card reveal" data-media data-playing-scope>
-          <div class="audio-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
-              <path
-                d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
-            </svg>
-          </div>
-          <div class="audio-card__body">
-            <!-- ✏️ Título e descrição do áudio -->
-            <h3>Título do áudio</h3>
-            <p>Uma breve descrição sobre o que o visitante vai ouvir.</p>
-            <audio controls preload="metadata">
-              <!-- 🎧 INSIRA AQUI O ARQUIVO DE ÁUDIO (pasta /audio) -->
-              <source src="audio/audio.mp3" type="audio/mpeg">
-              Seu navegador não suporta a reprodução de áudio.
-            </audio>
-            <p class="media__note" role="status">Arquivo não encontrado. Coloque-o em <code
-                data-missing-path>audio/audio.mp3</code></p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- =========================================================
          5. IMAGEM
          ========================================================= -->
     <section id="imagem" class="section" aria-labelledby="imagem-title">
@@ -380,44 +343,54 @@
 
         <!-- ✏️ Troque os href="#" pelos seus links reais -->
         <ul class="social" aria-label="Redes e contato">
-          <li>
-            <a href="#" aria-label="GitHub" title="GitHub">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path
-                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a href="#" aria-label="LinkedIn" title="LinkedIn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                <rect x="2" y="9" width="4" height="12" />
-                <circle cx="4" cy="4" r="2" />
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a href="#" aria-label="Instagram" title="Instagram">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a href="mailto:seuemail@exemplo.com" aria-label="E-mail" title="E-mail">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                <polyline points="22,6 12,13 2,6" />
-              </svg>
-            </a>
-          </li>
+            <li>
+    <a
+      href="https://github.com/alvarogomes2305"
+      aria-label="GitHub"
+      title="GitHub"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+        />
+      </svg>
+    </a>
+  </li>
+
+  <li>
+    <a
+      href="https://www.linkedin.com/in/alvaro-gomes-500139331/"
+      aria-label="LinkedIn"
+      title="LinkedIn"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+        />
+        <rect x="2" y="9" width="4" height="12" />
+        <circle cx="4" cy="4" r="2" />
+      </svg>
+    </a>
+  </li>
+
         </ul>
       </div>
 
